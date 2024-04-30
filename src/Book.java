@@ -4,14 +4,14 @@ public class Book implements Discount{
     final private String author;
     final private Genre genre;
     final private Double price;
-    final private boolean availability;
+    final private boolean available;
 
-    public Book(String title, String author, Genre genre, Double price, boolean availability) {
+    public Book(String title, String author, Genre genre, Double price, boolean available) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.price = price;
-        this.availability = availability;
+        this.available = available;
     }
 
     public String getTitle() {
@@ -30,8 +30,8 @@ public class Book implements Discount{
         return price;
     }
 
-    public boolean isAvailability() {
-        return availability;
+    public boolean isAvailable() {
+        return available;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Book implements Discount{
                 ", author='" + author + '\'' +
                 ", genre=" + genre +
                 ", price=" + price +
-                ", availability=" + availability +
+                ", available=" + available +
                 '}';
     }
     @Override
@@ -52,8 +52,5 @@ public class Book implements Discount{
         return price;
     }
 
-    public static void main(String[] args) {
-
-    }
 }
 

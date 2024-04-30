@@ -2,7 +2,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        Library library = new Library(6);
+        Library library = new Library(8);
 
         Book book1 = new Book("Essential Maths", "T. D. James", Genre.SCIENCE, 1000.50, true);
         Book book2 = new Book("New English Course 1", "C. Macmillan", Genre.LANGUAGE, 950.00, true);
@@ -17,21 +17,12 @@ public class Main {
         library.addBook(book5);
 
         library.removeBookByTitle("Essential maths");
+        library.removeBookByTitle("A tale of two cities");
 
 
-
-        //library.getAllBooks();
+        library.getAllBooks();
 
         library.getBookByTitle("France Afrique");
         library.getBookByTitle("essential Maths");
-
-
-
-
-
-        //for (int i = 1; i <= 100; i++) {
-        //  System.out.println(i);
-        //  }
-
     }
 }

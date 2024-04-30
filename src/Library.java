@@ -27,18 +27,20 @@ public class Library {
 
     public void getAllBooks() {
         System.out.println("getting list of books");
-        for (Book book : bookshelf) {
-            System.out.println(book);
+        for (int i = 0; i < size; i++) {
+            if (bookshelf[i].isAvailable()){
+                System.out.println(bookshelf[i]);
+            }
         }
     }
 
     public void removeBookByTitle(String title){
         boolean found = false;
         for (int i = 0; i < size; i++){
-            if (bookshelf[i].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[i].isAvailability()){
+            if (bookshelf[i].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[i].isAvailable()){
                 found = true;
-                for(int j = i; j < size - 1; j++){
-                    bookshelf[j] = bookshelf[j + 1];
+                for(int j = i; j < size-1; j++){
+                    bookshelf[j] = bookshelf[j+1];
                 }
                 size--;
                 System.out.println(title + " removed from the library");
@@ -46,7 +48,7 @@ public class Library {
             }
         }
         if (!found){
-            System.out.println(title + "not found");
+            System.out.println(title + " not found");
         }
     }
 
@@ -54,7 +56,7 @@ public class Library {
     public void getBookByTitle(String title) {
         boolean bookFound = false;
         for (int b = 0; b < size; b++) {
-            if (bookshelf[b].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[b].isAvailability()) {
+            if (bookshelf[b].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[b].isAvailable()) {
                 bookFound = true;
                 System.out.println("book found: " + bookshelf[b]);
                 break;
