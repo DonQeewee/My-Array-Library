@@ -16,6 +16,7 @@ public class Main {
         library.addBook(book4);
         library.addBook(book5);
 
+
         library.removeBookByTitle("Essential maths");
         library.removeBookByTitle("A tale of two cities");
 

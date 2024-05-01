@@ -14,40 +14,49 @@ public class Library {
     }
 
 
-    public void addBook(Book book) throws Exception {
-
-        if (size >= capacity) {
-            throw new Exception("Unable to add book. Library capacity reached");
-        } else {
-            bookshelf[size] = book;
-            size++;
-            System.out.println("book added successfully");
+    public void addBook(Book book) {
+        boolean bookExists = false;
+        for (int b = 0; b < size; b++) {
+            if (bookshelf[b].getTitle().equalsIgnoreCase(bookshelf[b].getTitle().trim())) {
+                bookExists = true;
+                System.out.println("Error: Book with title " + bookshelf[b].getTitle() + "  already exists in the library");
+                break;
+            }
         }
-    }
-
-    public void getAllBooks() {
-        System.out.println("getting list of books");
-        for (int i = 0; i < size; i++) {
-            if (bookshelf[i].isAvailable()){
-                System.out.println(bookshelf[i]);
+        if (!bookExists) {
+            if (size < capacity) {
+                bookshelf[size++] = book;
+                System.out.println("Book with title " + book.getTitle() + " added successfully");
+            } else {
+                System.out.println("Unable to add book with title " + book.getTitle() + ". Library capacity reached");
             }
         }
     }
 
-    public void removeBookByTitle(String title){
+    public void getAllBooks() {
+        for (int i = 0; i < size; i++) {
+            if (bookshelf[i].isAvailable()) {
+                System.out.println(bookshelf[i]);
+            }
+
+        }
+    }
+
+
+    public void removeBookByTitle(String title) {
         boolean found = false;
-        for (int i = 0; i < size; i++){
-            if (bookshelf[i].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[i].isAvailable()){
+        for (int i = 0; i < size; i++) {
+            if (bookshelf[i].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[i].isAvailable()) {
                 found = true;
-                for(int j = i; j < size-1; j++){
-                    bookshelf[j] = bookshelf[j+1];
+                for (int j = i; j < size - 1; j++) {
+                    bookshelf[j] = bookshelf[j + 1];
                 }
                 size--;
                 System.out.println(title + " removed from the library");
                 break;
             }
         }
-        if (!found){
+        if (!found) {
             System.out.println(title + " not found");
         }
     }
@@ -66,3 +75,5 @@ public class Library {
 
     }
 }
+
+
