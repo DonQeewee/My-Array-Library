@@ -17,7 +17,7 @@ public class Library {
     public void addBook(Book book) {
         boolean bookExists = false;
         for (int b = 0; b < size; b++) {
-            if (bookshelf[b].getTitle().equalsIgnoreCase(bookshelf[b].getTitle().trim())) {
+            if (bookshelf[b].getTitle().equalsIgnoreCase(book.getTitle().trim())) {
                 bookExists = true;
                 System.out.println("Error: Book with title " + bookshelf[b].getTitle() + "  already exists in the library");
                 break;
@@ -26,9 +26,9 @@ public class Library {
         if (!bookExists) {
             if (size < capacity) {
                 bookshelf[size++] = book;
-                System.out.println("Book with title " + book.getTitle() + " added successfully");
+                System.out.println("Book with title " + book.getTitle().trim() + " added successfully");
             } else {
-                System.out.println("Unable to add book with title " + book.getTitle() + ". Library capacity reached");
+                System.out.println("Unable to add book with title " + book.getTitle().trim() + ". Library capacity reached");
             }
         }
     }
@@ -44,15 +44,16 @@ public class Library {
 
 
     public void removeBookByTitle(String title) {
+        title = title.trim();
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            if (bookshelf[i].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[i].isAvailable()) {
+            if (bookshelf[i].getTitle().equalsIgnoreCase(title) && bookshelf[i].isAvailable()) {
                 found = true;
                 for (int j = i; j < size - 1; j++) {
                     bookshelf[j] = bookshelf[j + 1];
                 }
                 size--;
-                System.out.println(title + " removed from the library");
+                System.out.println(bookshelf[i].getTitle() + " removed from the library");
                 break;
             }
         }
@@ -63,9 +64,10 @@ public class Library {
 
 
     public void getBookByTitle(String title) {
+        title = title.trim();
         boolean bookFound = false;
         for (int b = 0; b < size; b++) {
-            if (bookshelf[b].getTitle().equalsIgnoreCase(title.trim()) && bookshelf[b].isAvailable()) {
+            if (bookshelf[b].getTitle().equalsIgnoreCase(title) && bookshelf[b].isAvailable()) {
                 bookFound = true;
                 System.out.println("book found: " + bookshelf[b]);
                 break;
