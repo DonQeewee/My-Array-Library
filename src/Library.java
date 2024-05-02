@@ -19,16 +19,16 @@ public class Library {
         for (int b = 0; b < size; b++) {
             if (bookshelf[b].getTitle().equalsIgnoreCase(book.getTitle().trim())) {
                 bookExists = true;
-                System.out.println("Error: Book with title " + bookshelf[b].getTitle() + "  already exists in the library");
+                System.out.println("Error: '" + bookshelf[b].getTitle() + "' already exists in the library");
                 break;
             }
         }
         if (!bookExists) {
             if (size < capacity) {
                 bookshelf[size++] = book;
-                System.out.println("Book with title " + book.getTitle().trim() + " added successfully");
+                System.out.println("'" + book.getTitle().trim() + "' added successfully");
             } else {
-                System.out.println("Unable to add book with title " + book.getTitle().trim() + ". Library capacity reached");
+                System.out.println("Unable to add '" + book.getTitle().trim() + "'. Library capacity reached");
             }
         }
     }

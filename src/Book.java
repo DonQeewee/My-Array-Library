@@ -3,15 +3,15 @@ public class Book implements Discount{
     final private String title;
     final private String author;
     final private Genre genre;
-    final private Double price;
-    final private boolean available;
+    private Double price;
+    private boolean available;
 
     public Book(String title, String author, Genre genre, Double price, boolean available) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.price = price;
-        this.available = available;
+        this.available = true;
     }
 
     public String getTitle() {
@@ -32,6 +32,9 @@ public class Book implements Discount{
 
     public boolean isAvailable() {
         return available;
+    }
+    public void setAvailable(boolean available){
+        this.available = available;
     }
 
     @Override
