@@ -4,12 +4,14 @@ public class Member {
     private Book[] borrowedBooks;
     private int borrowedBookCount;
     private static final int maxBorrowingCapacity = 5;
+    Library library;
 
 
-    public Member(String name) {
+    public Member(String name, Library library) {
         this.name = name;
         this.borrowedBooks = new Book[maxBorrowingCapacity];
         this.borrowedBookCount = 0;
+        this.library = library;
     }
 
     public String getName() {

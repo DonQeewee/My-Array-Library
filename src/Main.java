@@ -3,7 +3,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Library library = new Library(8);
-        Member member1 = new Member("Adeola James");
+        Member member1 = new Member("Adeola James", library);
+
 
         Book book1 = new Book("Essential Maths", "T. D. James", Genre.SCIENCE, 1000.50, true);
         Book book2 = new Book("New English Course 1", "C. Macmillan", Genre.LANGUAGE, 950.00, true);
